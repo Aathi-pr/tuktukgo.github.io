@@ -49,11 +49,6 @@ nav li:first-child {
     margin-right: auto;
 }
 
-nav a:hover {
-    background-color: #FAF9F6;
-    color: #000;
-    border-radius: 50px;
-}
 .main {
     display: flex;
     align-items: center;
@@ -83,7 +78,6 @@ nav a:hover {
     font-size: 36px; 
     font-weight: bold;
     color: #fff; 
-    animation: text-animation 5s ease-in-out infinite;
 }
 .container {
     display: flex;
@@ -101,4 +95,56 @@ nav a:hover {
 .image {
     max-width: 100%;
     height: auto;
+}
+.origin {
+    display: flex;
+    padding: 10px 30px 10px;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    margin-top: 80px;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.destination {
+    display: flex;
+    padding: 10px 30px 10px;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    margin-top: 50px;
+    border-radius: 10px;
+    font-size: 16px;
+}
+.btn {
+    display: flex;
+    padding: 10px 30px 10px;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    margin-top: 60px;
+    border-radius: 25px;
+    border: 2px solid grey;
+    background-color: white;
+    color: black;
+    font-size: 16px;
+    cursor: pointer;
+}
+.ok {
+    border-color: grey;
+    color: #000;
+}
+.ok:hover {
+    background-color: #000;
+    color: #FAF9F6;
+    transition: ease-in 0.3s;
+  
+}
+.btn-signup {
+    text-decoration: none;
+    color: #000;
+}
+.btn-signup:hover {
+    color: #FAF9F6;
 }
