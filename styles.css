@@ -6,6 +6,9 @@
     --bg-color: #000;
     --font-color: #FAF9F6;
 }
+html {
+    scroll-behavior: smooth;
+}
 * {
     margin: 0;
     padding: 0;
@@ -48,6 +51,24 @@ nav a {
 nav li:first-child {
     margin-right: auto;
 }
+nav a:hover {
+    color: #000;
+    background-color: #FAF9F6;
+    border-radius: 50px;
+    transition: 0.25s ease;
+}
+.burger div {
+    width: 25px;
+    height: 2px;
+    background-color: var(--bg-color);
+    color: var(--primary-color);
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+.burger {
+    display: none;
+    cursor: pointer;
+}
 
 .main {
     display: flex;
@@ -79,21 +100,32 @@ nav li:first-child {
     font-weight: bold;
     color: #fff; 
 }
-.container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px;
-}
 .text {
     flex: 1;
     padding: 20px;
+    margin-left: 100px;
 }
 .text h2 {
     margin-bottom: 10px;
 }
+.text p {
+    display: flex;
+    margin: auto;
+
+}
 .image {
-    max-width: 100%;
+    display: flex;
+    margin-left: 1000px;
+    margin-top: -300px;
+    margin-bottom: 100px;
+    padding: auto;
+}
+img {
+    border-radius: 50px;
+}
+.responsive {
+    width: 100%;
+    max-width: 400px;
     height: auto;
 }
 .origin {
@@ -147,4 +179,70 @@ nav li:first-child {
 }
 .btn-signup:hover {
     color: #FAF9F6;
+}
+@media  screen and (max-width: 672px) {
+    nav li:nth-child(2),
+    nav li:nth-child(3),
+    nav li:nth-child(4) {
+        display: none;
+    }
+    .text {
+        flex: 1;
+        padding: 20px;
+        margin: auto;
+    }
+    .text h2 {
+        margin-bottom: 10px;
+    }
+    .text p {
+        display: flex;
+        margin: auto;
+    
+    }
+    .image {
+        display: flex;
+        margin: 50px 50px 50px;
+    }
+}
+@media  screen and (max-width: 1024px) {
+    nav li:nth-child(2),
+    nav li:nth-child(3),
+    nav li:nth-child(4) {
+        display: none;
+    }
+}
+
+.nav-active {
+transform: translateX(0%);
+
+}
+    .text {
+        flex: 1;
+        padding: 20px;
+        margin: auto;
+    }
+    .text h2 {
+        margin-bottom: 10px;
+    }
+    .text p {
+        display: flex;
+        margin: auto;
+    
+    }
+    .image {
+        display: flex;
+        margin: 50px 50px 50px;
+    }
+
+
+footer {
+    background-color: rgba(0, 0, 0, 0.6);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(4px);
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
