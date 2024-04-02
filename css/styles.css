@@ -20,55 +20,7 @@ body {
     color: var(--font-color);
     min-height: 100vh;
 }
-nav {
-    position: fixed;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.15);
-    backdrop-filter: blur(8px);
-}
 
-nav ul {
-    width: 100%;
-    list-style: none;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-}
-nav li {
-    height: 50px;
-}
-nav a {
-    color: #FAF9F6;
-    height: 100%;
-    padding: 30px;
-    display: flex;
-    align-items: center;
-    font-weight: bold;
-    text-decoration: none;
-
-}
-nav li:first-child {
-    margin-right: auto;
-}
-nav a:hover {
-    color: #000;
-    background-color: #FAF9F6;
-    border-radius: 50px;
-    transition: 0.25s ease;
-}
-.burger div {
-    width: 25px;
-    height: 2px;
-    background-color: var(--bg-color);
-    color: var(--primary-color);
-    margin: 5px;
-    transition: all 0.3s ease;
-}
-.burger {
-    display: none;
-    cursor: pointer;
-}
 
 .main {
     display: flex;
@@ -87,10 +39,10 @@ nav a:hover {
 .head h1 {
     text-align: center;
     font-size: 3em;
-    color: #FAF9F6;
+    color: var(--font-color);
 }
 .head p {
-    color: #FAF9F6;
+    color: var(--font-color);
     text-align: center;
     font-size: 1.5em;
 }
@@ -168,24 +120,19 @@ img {
     color: #000;
 }
 .ok:hover {
-    background-color: #000;
-    color: #FAF9F6;
+    background-color: var(--bg-color);
+    color: var(--font-color);
     transition: ease-in 0.3s;
   
 }
 .btn-signup {
     text-decoration: none;
-    color: #000;
+    color: var(--bg-color);
 }
 .btn-signup:hover {
-    color: #FAF9F6;
+    color: var(--font-color);
 }
 @media  screen and (max-width: 672px) {
-    nav li:nth-child(2),
-    nav li:nth-child(3),
-    nav li:nth-child(4) {
-        display: none;
-    }
     .text {
         flex: 1;
         padding: 20px;
@@ -205,17 +152,7 @@ img {
     }
 }
 @media  screen and (max-width: 1024px) {
-    nav li:nth-child(2),
-    nav li:nth-child(3),
-    nav li:nth-child(4) {
-        display: none;
-    }
-}
 
-.nav-active {
-transform: translateX(0%);
-
-}
     .text {
         flex: 1;
         padding: 20px;
@@ -233,7 +170,7 @@ transform: translateX(0%);
         display: flex;
         margin: 50px 50px 50px;
     }
-
+}
 
 footer {
     background-color: rgba(0, 0, 0, 0.6);

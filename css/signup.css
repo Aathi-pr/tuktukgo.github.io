@@ -1,0 +1,54 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: var(--bg-color);
+    font-family: var(--font-family);
+    color: var(--font-color);
+    min-height: 100vh;
+}
+@media  screen and (max-width: 1024px) {
+    .container {
+        display: flex;
+        margin-right: auto;
+        padding: 70px 30px 50px;
+    }
+    .data-fill {
+        display: block;
+        align-items: center;
+        justify-content: center;
+        padding: 50px 150px;
+    }
+    .email-box {
+        display: flex;
+        padding: 10px 30px 10px;
+        border-radius: 10px;
+    }
+    .passwd-box {
+        margin-top: 10px;
+        display: flex;
+        padding: 10px 30px 10px;
+        border-radius: 10px;
+    }
+    .btn {
+        display: flex;
+        padding: 10px 30px 10px;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+        margin-top: 30px;
+        border-radius: 25px;
+        border: 2px solid grey;
+        background-color: white;
+        color: black;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    .btn:hover {
+        color: var(--font-color);
+        background-color: var(--bg-color);
+        transition: ease 0.25s;
+    }
+}
