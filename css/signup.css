@@ -66,18 +66,20 @@ body {
         display: block;
         align-items: center;
         justify-content: center;
-        padding: 50px 150px;
+        padding: 50px 100px;
     }
     .email-box {
         display: flex;
         align-items: center;
         justify-content: center;
+        margin: auto;
         padding: 10px 30px 10px;
         border-radius: 10px;
     }
     .passwd-box {
         margin-top: 10px;
         display: flex;
+        margin: auto;
         align-items: center;
         justify-content: center;
         padding: 10px 30px 10px;
