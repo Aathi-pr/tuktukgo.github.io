@@ -15,10 +15,15 @@ body {
     padding: 70px 30px 50px;
 }
 .data-fill {
-    display: block;
+    display: flexbox;
     align-items: center;
-    justify-content: center;
-    padding: 50px 100px;
+    padding: 50px 90px 50px;
+    margin-top: -800px;
+    margin-left: 800px;
+    background-color: rgba(0, 0, 0, 0.6);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(4px);
+    border-radius: 25px;
 }
 .email-box {
     display: flex;
@@ -29,13 +34,13 @@ body {
     border-radius: 10px;
 }
 .passwd-box {
-    margin-top: 10px;
     display: flex;
-    margin: auto;
     align-items: center;
     justify-content: center;
+    margin: auto;
     padding: 10px 30px 10px;
     border-radius: 10px;
+    margin-top: 20px;
 }
 .btn {
     display: flex;
@@ -56,6 +61,15 @@ body {
     background-color: var(--bg-color);
     transition: ease 0.25s;
 }
+.login-img {
+    display: flex;
+    padding: 50px 100px 50px;
+
+}
+img {
+    border-radius: 15%;
+}
+
 @media  screen and (max-width: 672px) {
     .container {
         display: flex;
@@ -65,8 +79,8 @@ body {
     .data-fill {
         display: block;
         align-items: center;
-        justify-content: center;
-        padding: 50px 100px;
+        margin-top: -600px;
+        margin-left: 190px;
     }
     .email-box {
         display: flex;
@@ -76,7 +90,7 @@ body {
         border-radius: 10px;
     }
     .passwd-box {
-        margin-top: 10px;
+        margin-top: 80px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -101,6 +115,16 @@ body {
         color: var(--font-color);
         background-color: var(--bg-color);
         transition: ease 0.25s;
+    }
+    .login-img {
+        display: flex;
+        padding-left: 20px;
+        padding-right: 20px;
+        width: 300px;
+        height: 500px;
+    }
+    img {
+        border-radius: 15%;
     }
 }
 @media  screen and (max-width: 1024px) {
@@ -110,10 +134,15 @@ body {
         padding: 70px 30px 50px;
     }
     .data-fill {
-        display: block;
+        display: flexbox;
         align-items: center;
-        justify-content: center;
-        padding: 50px 100px;
+        padding: 50px 100px 50px;
+        margin-left: 600px;
+        margin-top: -600px;
+        background-color: rgba(0, 0, 0, 0.6);
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.15);
+        backdrop-filter: blur(4px);
+        border-radius: 25px;
     }
     .email-box {
         display: flex;
@@ -150,5 +179,16 @@ body {
         color: var(--font-color);
         background-color: var(--bg-color);
         transition: ease 0.25s;
+    }
+    .login-img {
+        display: flex;
+        margin-left: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+        width: 750px;
+        height: 800px
+    }
+    img {
+        border-radius: 15%;
     }
 }
