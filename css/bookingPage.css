@@ -62,3 +62,12 @@
 .btn-signup:hover {
     color: var(--font-color);
 }
+@media (max-width: 768px) {
+    #map {
+        margin: auto;
+        top: 70px;
+        height: 400px;
+        width: 400px;
+        border-radius: 50px;
+    }
+}

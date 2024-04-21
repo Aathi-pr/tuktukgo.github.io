@@ -1,0 +1,77 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    height: 1100px;
+    width: 250px;
+    position: relative;
+    left: 50px;
+    
+}
+.contents {
+    z-index: 1;
+    color: #000;
+    
+}
+.contents a {
+color: white;
+text-decoration: none;
+}
+.profile, .changePassword {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top: 100px;
+}
+.dp {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    left: 100px;
+    top: 50px;
+    filter: invert(100%);
+}
+.container2 {
+    height: 500px;
+    width: 500px;
+    border-radius: 20px;
+    position: relative;
+    left: 400px;
+    top: -100px;
+    border: 1px solid #ccc;
+
+}
+.container3 {
+    height: 500px;
+    width: 500px;
+    border-radius: 20px;
+    position: relative;
+    left: 400px;
+    top: -50px;
+    border: 1px solid #ccc;
+}
+.container4 {
+    height: 500px;
+    width: 500px;
+    border-radius: 20px;
+    position: relative;
+    left: 1000px;
+    top: -1100px;
+    border: 1px solid #ccc;
+
+}
+.container5 {
+    height: 500px;
+    width: 500px;
+    border-radius: 20px;
+    position: relative;
+    left: 1000px;
+    top: -1050px;
+    border: 1px solid #ccc;
+}
