@@ -212,7 +212,7 @@ img {
     border-color: var(--font-color);
     color: var(--font-color);
 }
-.admin-welcome {
+.adminHead h1 {
     position: absolute;
     top: -100px;
     align-items: center;
