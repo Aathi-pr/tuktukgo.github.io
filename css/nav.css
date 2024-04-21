@@ -63,7 +63,10 @@ body {
     transition: 0.25s ease;
 }
 
-
+.tuktuk {
+    position: relative;
+    top: 5px;
+}
 @media  screen and (max-width: 1024px) {
     .nvLinks ul {
        display: none;
