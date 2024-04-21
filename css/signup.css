@@ -25,6 +25,14 @@ body {
     backdrop-filter: blur(4px);
     border-radius: 25px;
 }
+.userid-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    padding: 10px 30px 10px;
+    border-radius: 10px;
+}
 .email-box {
     display: flex;
     align-items: center;
@@ -32,6 +40,7 @@ body {
     margin: auto;
     padding: 10px 30px 10px;
     border-radius: 10px;
+    margin-top: 20px;
 }
 .passwd-box {
     display: flex;

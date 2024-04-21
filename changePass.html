@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Password</title>
+    <link rel="stylesheet" href="css/styles.css">
+    
+</head>
+<body>
+    <div class="con-pass">
+        <form class="passchange" name="form1" onsubmit="return passValidate()" >
+            <div class="box1">
+                Existing Password<input class="pass-btn1" type="password" placeholder="old Password" name="t1" id="t1">
+            </div>
+            <div class="box2">
+                New Password <input class="pass-btn2" type="password" placeholder="New Password" name="t2" id="t2">
+            </div>
+            <div class="box3">
+                ReType Password <input class="pass-btn3" type="password" placeholder="Retype new Password" name="t3" id="t3">
+            </div>
+            <div class="pass-sub">
+                <input class="pass-btn" type="submit" value="submit">
+            </div>
+            
+        </form>
+    </div>
+    <script src="js/app.js"></script>
+</body>
+</html>

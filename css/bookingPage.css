@@ -1,0 +1,64 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+#map {
+    margin: auto;
+    top: 70px;
+    height: 600px;
+    width: 600px;
+    border-radius: 50px;
+}
+.origin {
+    display: flex;
+    padding: 10px 30px 10px;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    margin-top: 100px;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.destination {
+    display: flex;
+    padding: 10px 30px 10px;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    margin-top: 20px;
+    border-radius: 10px;
+    font-size: 16px;
+}
+.btn {
+    display: flex;
+    padding: 10px 30px 10px;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    margin-top: 20px;
+    border-radius: 25px;
+    border: 2px solid grey;
+    background-color: white;
+    color: black;
+    font-size: 16px;
+    cursor: pointer;
+}
+.ok {
+    border-color: grey;
+    color: #000;
+}
+.ok:hover {
+    background-color: var(--bg-color);
+    color: var(--font-color);
+    transition: ease-in 0.3s;
+  
+}
+.btn-signup {
+    text-decoration: none;
+    color: var(--bg-color);
+}
+.btn-signup:hover {
+    color: var(--font-color);
+}

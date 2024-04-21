@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a TUkTUk</title>
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/bookingPage.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""/>
+</head>
+<body>
+    <!-- navigation bar -->
+    <nav>
+        <ul class="navigation">
+            <li><a href="index.html">TukTukGo</a></li>
+            <li><a href="#Ride" class="nvLinks">Ride</a></li>
+            <li><a href="#Drive" class="nvLinks">Drive</a></li>
+            <li><a href="#About" class="nvLinks">About</a></li>
+        </ul>
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+     <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""></script>
+    <div id="map"></div>
+    <form>
+        <input name="location" id="locationInput" type="text" class="origin" placeholder="Location">
+        <input type="text" id="destinantion" class="destination" placeholder="Destination">
+        <button id="searchButton" class="btn ok">Search</button>
+        </form>
+    <script src="js/app.js"></script>
+</body>
+</html>
