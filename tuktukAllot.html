@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TukTuk Registration</title>
+    <title>TukTuk Allot</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/tuktukAllot.css">
 </head>
 <body>
     <nav class="navbar">
@@ -26,55 +27,23 @@
             </ul>
             </div>
     </nav>
-    <h1 class="vehicle-head">TukTuk Registration</h1>
-    <img class="regBack" src="img/Designer (3).jpeg" alt="reg-back" height="800px" width="600px">
-    <div class="form-container">
-    <form id="vehicleRegistration" class="vehicle-reg">
-        <h3 class="1">Vehicle Number :</h3><input class="vehicleNumber" type="text" placeholder="vehicle Number">
+    <h1 class="allotHead">
+        Allot TukTuk's To Drivers
+    </h1>
+    <div class="allotForm">
+        <form>
+            <label for="TukTuk's"> <h3 class="3"> Select TukTuk Number : </h3> </label>
+            <select id="fuelType" name="fuelType">
+              <option value="">...</option>
+              <option value="">...</option>
+              <option value="">...</option>
+              <option value="">...</option>
+            </select>
 
-        <h3 class="2">Vehicle Type : </h3> 
-        <div class="three">
-        <input class="VehicleType" name="vehicleType" checked="checked" type="radio" id="3wheel" value="3wheel">
-        <label class="rad1" for="3wheel">3 Wheeler</label><br>
-        </div>
-
-        <div class="four">
-        <input name="vehicleType" type="radio" id="4wheel" value="4wheel">
-        <label class="rad2" for="4wheel">4 Wheeler</label><br>
-        </div>
-
-        <label for="Vehicle Fuel Type"> <h3 class="3">Vehicle Fuel Type : </h3> </label>
-        <select id="fuelType" name="fuelType">
-          <option value="Petrol">Petrol</option>
-          <option value="diesel">diesel</option>
-          <option value="CNG">CNG</option>
-          <option value="Electric">Electric</option>
-        </select>
-
-        <h3 class="4">Manufactured Company : </h3> <input class="ManufacturedCompany" type="text" name="ManufacturedCompany" placeholder="Bajaj, etc..">
-
-        <h3 class="5">Vehicle CC : </h3> <input type="text" name="vehicleCc" class="vehicleCc" placeholder="90cc">
-
-        <label for="Year Of Manufacture"> <h3 class="6">Year Of Manufacture : </h3> </label>
-        <select id="year" name="year">
-            <option value="2021">2021</option>
-            <option value="2022">2022</option>
-            <option value="2023">2023</option>
-            <option value="2024">2024</option>
-        </select>
-
-
-         <h3 class="7">Upload RC : </h3> <input class="rcUpload" type="file" id="rcUpload" name="rcUpload">
-
-         <h3 class="8">Upload Vehicle Photo : </h3> <input class="vehiclePhoto" type="file" id="vehiclePhoto" name="vehiclePhoto">
-
-         <h3 class="9">Date Of Registration : </h3> <input type="date" class="DateOfRegistration" name="DateOfRegistration">
-
-          <input class="tukReg-btn" type="submit" value="submit">
-
-
-    </form>
+            <input class="allot-btn" type="submit" value="view">
+        </form>
     </div>
-    <script src="js/app.js"></script>
+
+        <script src="js/app.js"></script>
 </body>
 </html>

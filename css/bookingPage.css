@@ -5,20 +5,10 @@
 }
 #map {
     margin: auto;
-    top: 70px;
+    top: 40px;
     height: 600px;
     width: 600px;
     border-radius: 50px;
-}
-.origin {
-    display: flex;
-    padding: 10px 30px 10px;
-    align-items: center;
-    justify-content: center;
-    margin: auto;
-    margin-top: 100px;
-    border-radius: 10px;
-    font-size: 16px;
 }
 
 .destination {
@@ -27,7 +17,7 @@
     align-items: center;
     justify-content: center;
     margin: auto;
-    margin-top: 20px;
+    margin-top: 70px;
     border-radius: 10px;
     font-size: 16px;
 }
@@ -61,6 +51,12 @@
 }
 .btn-signup:hover {
     color: var(--font-color);
+}
+.display {
+    display: flex;
+    position: relative;
+    top: 600px;
+    left: -400px;
 }
 @media (max-width: 768px) {
     #map {

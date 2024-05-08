@@ -21,6 +21,9 @@
 color: white;
 text-decoration: none;
 }
+.contents a:hover {
+    color: gray;
+}
 .profile, .changePassword {
     display: flex;
     align-items: center;

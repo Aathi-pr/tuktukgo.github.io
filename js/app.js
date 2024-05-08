@@ -3,66 +3,73 @@ document.querySelector('.toggle-button').addEventListener('click', function() {
     navLinks.style.display = navLinks.style.display === 'block' ? 'none' : 'block';
  });
 
-var map = L.map('map').setView([51.505, -0.09], 13);
+  var map = L.map('map').setView([0, 0], 13); // Default view is set to (0, 0)
+        var polyline;
 
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-}).addTo(map);
+        // Add OpenStreetMap tile layer
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
 
-navigator.geolocation.watchPosition(success, error);
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-    } else {
-        alert("Geolocation is not supported by this browser.");
-    }
-}
+        // Get user's current location
+        navigator.geolocation.getCurrentPosition(function(position) {
+            var latlng = [position.coords.latitude, position.coords.longitude];
+            L.marker(latlng).addTo(map).bindPopup("Your Current Location").openPopup();
+            map.setView(latlng, 13); // Set map center to user's location
+            
+            // Convert current location coordinates to location name
+            var apiKey = 'YOUR_API_KEY';
+            var reverseGeocodeUrl = 'https://nominatim.openstreetmap.org/reverse?lat=' + latlng[0] + '&lon=' + latlng[1] + '&format=json&zoom=18&addressdetails=1';
 
-function showPosition(position) {
-    var lat = position.coords.latitude;
-    var lng = position.coords.longitude;
-    var apiKey = '5b3ce3597851110001cf6248646a5e984ccf4ce5a70315dcfb95a9c8'; // Replace with your OpenRouteService API Key
+            fetch(reverseGeocodeUrl)
+                .then(response => response.json())
+                .then(data => {
+                    var locationName = data.display_name;
+                    document.getElementById('currentLocation').value = locationName;
+                })
+                .catch(error => console.error('Error:', error));
+        });
 
-    // Send a request to OpenRouteService Geocoding API for reverse geocoding
-    var url = `https://api.openrouteservice.org/geocode/reverse?api_key=${apiKey}&point.lat=${lat}&point.lon=${lng}`;
+        function calculateDistance() {
+            var destName = document.getElementById('destName').value;
+            var distanceDisplay = document.getElementById('distance');
 
-    fetch(url)
-        .then(response => response.json())
-        .then(data => {
-            if (data.features && data.features.length > 0) {
-                var locationName = data.features[0].properties.name;
-                document.getElementById("locationInput").value = locationName;
-            } else {
-                console.error("No results found");
-            }
-        })
-        .catch(error => console.error("Error fetching location:", error));
-}
+            // Geocode destination name to coordinates using OpenStreetMap Nominatim API
+            var geocodeUrl = 'https://nominatim.openstreetmap.org/search?q=' + encodeURIComponent(destName) + '&format=json&limit=1';
 
-let marker, circle, zoomed;
-function success(pos) {
-    const lat = pos.coords.latitude;
-    const log = pos.coords.longitude;
-    const accuracy = pos.coords.accuracy;
+            fetch(geocodeUrl)
+                .then(response => response.json())
+                .then(data => {
+                    var destination = [data[0].lat, data[0].lon]; // Destination location (latitude, longitude)
+                    L.marker(destination).addTo(map).bindPopup("Destination");
 
-    if (marker) {
-        map.removeLayer(marker);
-        map.removeLayer(circle);
-    }
+                    // Calculate route using OpenRouteService API
+                    var latlng = map.getCenter(); // Get user's current location
+                    var routeUrl = 'https://api.openrouteservice.org/v2/directions/driving-car?api_key=5b3ce3597851110001cf6248646a5e984ccf4ce5a70315dcfb95a9c8&start=' + latlng.lng + ',' + latlng.lat + '&end=' + destination[1] + ',' + destination[0];
+                    
+                    fetch(routeUrl)
+                        .then(response => response.json())
+                        .then(data => {
+                            var distance = data.features[0].properties.summary.distance; // Distance in meters
+                            var distanceInKm = (distance / 1000).toFixed(2); // Convert to kilometers with 2 decimal places
+                            distanceDisplay.textContent = "Distance to destination: " + distanceInKm + " km";
 
-    marker = L.marker([lat, log]).addTo(map);
-    circle = L.circle([lat, log], { radius: accuracy}).addTo(map);
+                            // Remove existing polyline if exists
+                            if (polyline) {
+                                map.removeLayer(polyline);
+                            }
 
-    map.fitBounds(circle.getBounds());
-}
+                            // Add polyline from user's current location to destination
+                            var routeCoordinates = data.features[0].geometry.coordinates;
+                            var polylinePoints = routeCoordinates.map(coord => [coord[1], coord[0]]); // Leaflet uses [lat, lng] format
+                            polyline = L.polyline(polylinePoints, {color: 'blue'}).addTo(map);
 
-function error(err) {
-    if (err.code === 1) {
-        alert("Please Turn 'ON' Geolocation Access");
-    } else {
-        alert("Cannot Get User Location");
-    }
-    
-}
-getLocation();
+                            // Fit map to polyline bounds
+                            var bounds = polyline.getBounds();
+                            map.fitBounds(bounds);
+                        })
+                        .catch(error => console.error('Error:', error));
+                })
+                .catch(error => console.error('Error:', error));
+        }
