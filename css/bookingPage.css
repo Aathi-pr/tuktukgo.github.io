@@ -66,4 +66,28 @@
         width: 400px;
         border-radius: 50px;
     }
+    .destination {
+        display: flex;
+        padding: 10px 30px 10px;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+        margin-top: 70px;
+        border-radius: 10px;
+        font-size: 16px;
+    }
+    .btn {
+        display: flex;
+        padding: 10px 30px 10px;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+        margin-top: 20px;
+        border-radius: 25px;
+        border: 2px solid grey;
+        background-color: white;
+        color: black;
+        font-size: 16px;
+        cursor: pointer;
+    }
 }
