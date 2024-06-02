@@ -9,12 +9,15 @@ body {
 }
 .navbar {
     display: flex;
+    position: sticky;
+    top: 0;
     justify-content: space-between;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.6);
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.15);
     backdrop-filter: blur(8px);
     color: #FAF9F6;
+    z-index: 1000;
 
 }
 .mainHead {
@@ -48,7 +51,7 @@ body {
 }
 .nvLinks li a {
     text-decoration: none;
-    color: #FAF9F6;
+    color: #ff9800;
     padding: 1rem;
 
 
@@ -57,7 +60,7 @@ body {
     color: #000;
 }
 .nvLinks li:hover {
-    background-color: #FAF9F6;
+    background-color: #ff9800;
     color: #000;
     border-radius: 50px;
     transition: 0.25s ease;
@@ -82,7 +85,26 @@ body {
     .navbar {
         flex-direction: column;
         align-items: flex-start;
-        position: sticky;
+    }
+    .toggle-button .bar {
+        width: 25px;
+        height: 3px;
+        background-color: var(--primary-color);
+        margin: 5px auto;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .toggle-button.active .bar:nth-child(1) {
+        transform: rotate(-45deg) translate(-6px,5px);
+    }
+
+    .toggle-button.active .bar:nth-child(2) {
+        transition: ease 0.5s;
+        opacity: 0;
+    }
+
+    .toggle-button.active .bar:nth-child(3) {
+        transform: rotate(45deg) translate(-6px,-5px);
     }
     .nvLinks ul {
         width: 100%;
@@ -118,8 +140,6 @@ body {
     .navbar {
         flex-direction: column;
         align-items: flex-start;
-        position: sticky;
-        top: 0;
     }
     .nvLinks ul {
         width: 100%;
