@@ -22,7 +22,7 @@
         </a>
         <div class="nvLinks">
             <ul>
-                <li><a href="#">Ride</a></li>
+                <li><a href="bookingPage.html">Ride</a></li>
                 <li><a href="driverRegistration.html">Driver</a></li>
                 <li><a href="TukTukRegistration.html">Tuktuk's</a></li>
                 <li><a href="#About">About</a></li>
@@ -96,7 +96,7 @@
                 userMarker.setLatLng(latlng);
             } else {
                 var pickupIcon = L.icon({
-                    iconUrl: '/static/img/icons8-location-marker-24.png',
+                    iconUrl: 'img/icons8-location-marker-24.png',
                     iconSize: [30, 30],
                     iconAnchor: [15, 30],
                     popupAnchor: [0, -30],
@@ -146,7 +146,7 @@
                         destMarker.setLatLng(destination);
                     } else {
                         var destinationIcon = L.icon({
-                            iconUrl: '/static/img/icons8-destination-48.png',
+                            iconUrl: 'img/icons8-destination-48.png',
                             iconSize: [30, 30],
                             iconAnchor: [15, 30],
                             popupAnchor: [0, -30],
@@ -193,7 +193,7 @@
                                         document.getElementById('nearestAutoId').value = jsonResponse.nearest_auto.id;
         
                                         var autoIcon = L.icon({
-                                            iconUrl: '/static/img/icons8-auto-ricksaw-64.png',
+                                            iconUrl: 'img/icons8-auto-ricksaw-64.png',
                                             iconSize: [30, 30],
                                             iconAnchor: [15, 30],
                                             popupAnchor: [0, -30],
