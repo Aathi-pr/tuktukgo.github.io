@@ -127,6 +127,9 @@ body {
 .button:hover {
     background: #ff9800;
 }
+.extra {
+    text-decoration: none;
+}
 
 /* Responsive Styles */
 @media (max-width: 768px) {
