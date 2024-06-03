@@ -13,6 +13,7 @@
     display: flex;
     margin-left: 900px;
     margin-top: 100px;
+    border-radius: 50px;
 }
 .form-driverContainer {
     display: flex;
@@ -41,7 +42,7 @@
     position: relative;
     left: 10px;
 }
-.driverName, .houseName, .placeName, .pincode, .phoneNumber, .aadhar, .license {
+.driverName, .houseName, .placeName, .pincode, .email, .phoneNumber, .aadhar, .license {
     display: flex;
     padding: 10px 20px 10px;
     align-items: center;
@@ -51,8 +52,8 @@
     font-size: 16px;
 }
 .driverReg-btn {
-    background-color: var(--font-color);
-    color: var(--bg-color);
+    background-color: var(--bg-color);
+    color: var(--primary-color);
     padding: 16px 20px;
     font-size: 16px;
     margin: 8px 0;
@@ -61,11 +62,11 @@
     width: 100%;
     opacity: 0.9;
     border-radius: 15px;
-    border: 2px solid var(--font-color);
+    border: 2px solid var(--primary-color);
 }
 .driverReg-btn:hover {
-    background-color: var(--bg-color);
-    color: var(--font-color);
+    background-color: var(--primary-color);
+    color: var(--bg-color);
     transition: 0.2s ease-in;
 }
 

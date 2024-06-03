@@ -1,0 +1,158 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driver Process</title>
+    <link rel="stylesheet" href=" css/nav.css ">
+    <link rel="stylesheet" href=" css/styles.css ">
+    <link rel="stylesheet" href=" css/driverProcess.css ">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+
+</head>
+<body>
+
+        <!-- Map container -->
+        <div class="mapContainer">
+            <div id="map"></div>
+        </div>
+
+        <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+        <input type="hidden" id="userCoordinates" value="{{ user_lat }}, {{ user_lon }}">
+        <input type="hidden" id="driverCoordinates" value="{{ driver_lat }}, {{ driver_lon }}">
+
+    
+        <div class="allDetails">
+            <div class="distance" id="distance"></div>
+            <div class="routeDetails" id="routeDetails"></div>
+            <form>
+                <input class="allot-btn" type="submit" name="submit" value="Start Trip">
+            </form>
+        </div>
+    
+        <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+        <script>
+            var map = L.map('map').setView([0, 0], 13);
+            var polyline;
+            
+            // Retrieve driver's and user's coordinates from hidden input fields
+            var driverCoordinates = document.getElementById('driverCoordinates').value.split(', ');
+            var driverLat = parseFloat(driverCoordinates[0]);
+            var driverLon = parseFloat(driverCoordinates[1]);
+    
+            var userCoordinates = document.getElementById('userCoordinates').value.split(', ');
+            var userLat = parseFloat(userCoordinates[0]);
+            var userLon = parseFloat(userCoordinates[1]);
+    
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+    
+            var driverLatLon = [driverLat, driverLon];
+            L.marker(driverLatLon).addTo(map).bindPopup("Driver's Location").openPopup();
+            map.setView(driverLatLon, 13);
+    
+            var userLatLon = [userLat, userLon];
+            L.marker(userLatLon).addTo(map).bindPopup("User's Location");
+    
+            // Calculate route from driver's location to user's location using OpenRouteService API
+            var routeUrl = 'https://api.openrouteservice.org/v2/directions/driving-car?api_key=YOUR_API_KEY&start=' + driverLon + ',' + driverLat + '&end=' + userLon + ',' + userLat;
+    
+            fetch(routeUrl)
+                .then(response => response.json())
+                .then(data => {
+                    var distance = data.features[0].properties.summary.distance; // Distance in meters
+                    var distanceInKm = (distance / 1000).toFixed(2); // Convert to kilometers with 2 decimal places
+                    document.getElementById('distance').textContent = "Distance to user: " + distanceInKm + " km";
+    
+                    // Remove existing polyline if exists
+                    if (polyline) {
+                        map.removeLayer(polyline);
+                    }
+    
+                    // Add polyline from driver's current location to user's location
+                    var routeCoordinates = data.features[0].geometry.coordinates;
+                    var polylinePoints = routeCoordinates.map(coord => [coord[1], coord[0]]); // Leaflet uses [lat, lng] format
+                    polyline = L.polyline(polylinePoints, {color: 'blue'}).addTo(map);
+    
+                    // Fit map to polyline bounds
+                    var bounds = polyline.getBounds();
+                    map.fitBounds(bounds);
+    
+                    // Update route details in the HTML
+                    document.getElementById('routeDetails').innerHTML = 
+                        "<p>Route Details:</p>" +
+                        "<p>Start: (" + driverLat + ", " + driverLon + ")</p>" +
+                        "<p>End: (" + userLat + ", " + userLon + ")</p>";
+                })
+                .catch(error => console.error('Error:', error));
+        </script>
+
+
+        <div class="sidebar" id="sidebar">
+            <div class="logo">TukTukGo</div>
+            <nav>
+                <ul>
+                    <li><a href="#">Profile</a></li>
+                    <li><a href="#">My Trips</a></li>
+                    <li><a href="#">Earnings</a></li>
+                    <li><a href="responseForTuktuk.html">Requests</a></li>
+                    <li><a href="feedback.html">Feedback</a></li>
+                    <li><a href="driverChangePass.html">Change Password</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="main-content">
+            <header>
+                <button id="toggle-button">&#9776; Menu</button>
+                <h1>Driver Dashboard</h1>
+            </header>
+            <div class="summary-cards">
+                <div class="card">
+                    <h2>Total Trips</h2>
+                    <p>123</p>
+                </div>
+                <div class="card">
+                    <h2>Total Earnings</h2>
+                    <p>$4567</p>
+                </div>
+            </div>
+            <div class="charts">
+                <div class="chart">
+                    <h2>Trips Overview</h2>
+                    <!-- Placeholder for chart -->
+                    <div class="chart-placeholder">Chart goes here</div>
+                </div>
+            </div>
+            <div class="activity-feed">
+                <h2>Recent Activity</h2>
+                <ul>
+                    <li>Trip to downtown completed</li>
+                    <li>New booking from John Doe</li>
+                    <li>Feedback received from Jane Smith</li>
+                </ul>
+            </div>
+        </div>
+        <script> 
+            document.addEventListener('DOMContentLoaded', function() {
+                const toggleButton = document.getElementById('toggle-button');
+                const sidebar = document.getElementById('sidebar');
+            
+                toggleButton.addEventListener('click', function() {
+                    sidebar.classList.toggle('show');
+                });
+            
+                // Close the sidebar if the user clicks outside of it
+                document.addEventListener('click', function(event) {
+                    if (!sidebar.contains(event.target) && !toggleButton.contains(event.target)) {
+                        sidebar.classList.remove('show');
+                    }
+                });
+            });
+        </script>
+            <script src=" js/app.js "></script>
+        </body>
+        </html>

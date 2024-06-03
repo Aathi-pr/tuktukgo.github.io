@@ -266,6 +266,7 @@ footer {
 .regBack {
     display: flex;
     margin-left: 300px;
+    border-radius: 50px;
 }
 
 .form-container {

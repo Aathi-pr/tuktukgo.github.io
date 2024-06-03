@@ -1,0 +1,49 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.responseTable {
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top: 250px;
+    left: 450px;
+}
+.response-head {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.responseTable {
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top: 40px;
+    left: 630px;
+}
+.rideButton {
+    background-color: var(--font-color);
+    color: var(--bg-color);
+    padding: 16px 20px;
+    font-size: 16px;
+    border: none;
+    opacity: 0.9;
+    border-radius: 15px;
+    border: 2px solid var(--font-color);
+
+    position: relative;
+    top: 500px;
+    left: 750px;
+}
+.rideButton:hover {
+    background-color: var(--bg-color);
+    color: var(--font-color);
+    transition: 0.2s ease-in;
+}
+.message {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}

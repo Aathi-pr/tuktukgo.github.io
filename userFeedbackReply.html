@@ -1,0 +1,43 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User FeedBack Reply</title>
+    <link rel="stylesheet" href=" css/styles.css " />
+    <link rel="stylesheet" href=" css/nav.css " />
+    <link rel="stylesheet" href=" css/feedReply.css " />
+  </head>
+  <body>
+
+    <h1 class="allotHead">FeedBack Reply To User's</h1>
+    <div class="feedReplyForm">
+      {% if userFeedbacks %}
+      <form action="/userFeedbackReplyRequests/" method="post">
+        {% csrf_token %}
+        <label for="FeedBack"> <h3 class="h3">Select FeedBack ID :</h3> </label>
+        <select id="feedbacks" name="feedbackID">
+          {% for feedbackID in userFeedbacks %}
+          <option value="{{ feedbackID }}">{{ feedbackID }}</option>
+          {% endfor %}
+        </select>
+        <input class="allot-btn" type="submit" value="view" />
+      </form>
+      {% else %}
+      <div class="msgarea">No Available FeedBacks..</div>
+      {% endif %}
+    </div>
+
+    <script src=" js/app.js "></script>
+    <script>
+        function toggleMenu() {
+            const toggleButton = document.querySelector('.toggle-button');
+            const navLinks = document.querySelector('.nvLinks ul');
+
+            toggleButton.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        }
+    </script>
+  </body>
+</html>
