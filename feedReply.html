@@ -33,7 +33,7 @@
     </h1>
     <div class="feedReplyForm">
         {% if feedbacks %}
-        <form action="/feedReplyRequests/" method="post">{% csrf_token %}
+        <form action="/feedReplyRequests/" method="post"> 
             <label for="FeedBack"> <h3 class="h3"> Select FeedBack ID : </h3> </label>
             <select id="feedbacks" name="feedbackID">
                 {% for feedbackID in feedbacks %}

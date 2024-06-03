@@ -32,7 +32,7 @@
         <div class="allotForm">
             {% if vehicleList %}
             <form action="/tuktukForDriverDetails/" method="post">
-                {% csrf_token %}
+                 
                 <label for="VehicleNumber">
                     <h3 class="h3">Select TukTuk Number:</h3>
                 </label>
@@ -51,13 +51,7 @@
 
         <script src=" js/app.js "></script>
         <script>
-            function toggleMenu() {
-                const toggleButton = document.querySelector('.toggle-button');
-                const navLinks = document.querySelector('.nvLinks ul');
-    
-                toggleButton.classList.toggle('active');
-                navLinks.classList.toggle('active');
-            }
+   
         </script>
 </body>
 </html>

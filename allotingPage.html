@@ -79,7 +79,7 @@
                 <tr>
                     <td colspan="2">
                         <form action="/tuktukAllot3/" method="post" enctype="multipart/form-data">
-                            {% csrf_token %}
+                             
                             <input type="hidden" name="VehicleNumber" value="{{ VehicleNumber }}">
                             <input type="hidden" name="driverID" value="{{ driverID }}">
                             <input class="allot-btn" type="submit" name="status" value="Allot">

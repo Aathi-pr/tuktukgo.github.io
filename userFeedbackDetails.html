@@ -53,7 +53,7 @@
         <h1 class="reply-head">Reply</h1>
         <tr>
           <form action="/userFeedbackDetailsPost/" method="post">
-            {% csrf_token %}
+             
             <textarea name="textarea" rows="5" cols="40"></textarea>
             <input type="hidden" name="feedbackID" value="{{ feedbackID }}" />
             <input type="hidden" name="userID" value="{{ userID }}" />

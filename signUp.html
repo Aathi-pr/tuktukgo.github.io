@@ -33,7 +33,7 @@
         <div class="image-container">
             <img src=" img/Designer (2).jpeg " alt="Login Image">
         </div>
-        <form class="login-form" action="/validateLogin/" method="post">{% csrf_token %}
+        <form class="login-form" action="/validateLogin/" method="post"> 
             <h2>Login</h2>
             <div class="input-group">
                 <input type="text" id="userID" name="userID" required>
@@ -74,13 +74,7 @@
             }
         };
 
-            function toggleMenu() {
-                const toggleButton = document.querySelector('.toggle-button');
-                const navLinks = document.querySelector('.nvLinks ul');
-    
-                toggleButton.classList.toggle('active');
-                navLinks.classList.toggle('active');
-            }
+   
 
         
     </script>        

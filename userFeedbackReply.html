@@ -15,7 +15,7 @@
     <div class="feedReplyForm">
       {% if userFeedbacks %}
       <form action="/userFeedbackReplyRequests/" method="post">
-        {% csrf_token %}
+         
         <label for="FeedBack"> <h3 class="h3">Select FeedBack ID :</h3> </label>
         <select id="feedbacks" name="feedbackID">
           {% for feedbackID in userFeedbacks %}

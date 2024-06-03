@@ -48,7 +48,7 @@
         <div class="mt-3" id="nearestAutoDetails"></div>
     
         <form action="/requetTuktukAndTuktukDriver/" method="post">
-            {% csrf_token %}
+             
             <input type="hidden" id="userLat" name="userLat">
             <input type="hidden" id="userLon" name="userLon">
             <input type="hidden" id="destCoordinates" name="destCoordinates">
@@ -224,17 +224,10 @@
                 })
                 .catch(error => console.error('Error:', error));
             document.getElementById('findTukTukButton').style.display = 'block';
-                function toggleMenu() {
-                    const toggleButton = document.querySelector('.toggle-button');
-                    const navLinks = document.querySelector('.nvLinks ul');
-        
-                    toggleButton.classList.toggle('active');
-                    navLinks.classList.toggle('active');
-                }
         }
     </script>
     
-    
+    <script src="js/app.js"> </script>
     
 </body>
 </html>
